@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Excel Notes – Sameeksha | 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1e3d;
+    --navy-mid: #122d5c;
+    --navy-light: #1a3f80;
+    --navy-accent: #1e4fa3;
+    --blue-bright: #2563eb;
+    --blue-pale: #dbeafe;
+    --blue-soft: #eff6ff;
+    --gold: #c9a84c;
+    --gold-light: #f5e9c4;
+    --white: #ffffff;
+    --off-white: #f8faff;
+    --text-dark: #0f1b30;
+    --text-mid: #1e3a6e;
+    --text-muted: #4a6fa5;
+    --border: #c7d8f0;
+    --shadow: 0 4px 24px rgba(10,30,61,0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--white);
+    color: var(--text-dark);
+    line-height: 1.7;
+  }
+
+  /* COVER */
+  .cover {
+    background: var(--navy);
+    color: var(--white);
+    padding: 80px 60px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    border: 60px solid rgba(37,99,235,0.15);
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 100px;
+    width: 250px; height: 250px;
+    border-radius: 50%;
+    border: 40px solid rgba(201,168,76,0.12);
+  }
+  .cover-tag {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+  }
+  .cover h1 span { color: var(--gold); }
+  .cover-sub {
+    font-size: 18px;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 28px;
+  }
+  .cover-meta-item label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    display: block;
+  }
+  .cover-meta-item span {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gold);
+  }
+
+  /* NAV / TOC */
+  .toc {
+    background: var(--navy-mid);
+    padding: 40px 60px;
+  }
+  .toc-title {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 8px;
+  }
+  .toc-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255,255,255,0.75);
+    font-size: 13px;
+    padding: 6px 0;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .toc-item:hover { color: var(--gold); }
+  .toc-num {
+    font-size: 10px;
+    background: rgba(201,168,76,0.2);
+    color: var(--gold);
+    border-radius: 4px;
+    padding: 2px 7px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  /* MAIN CONTENT */
+  .content { max-width: 900px; margin: 0 auto; padding: 60px 40px; }
+
+  /* SECTION HEADER */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--navy);
+  }
+  .section-num {
+    background: var(--navy);
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    width: 52px; height: 52px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+
+  /* CARDS */
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+  }
+  .card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--navy);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--blue-pale);
+  }
+
+  /* GRID CARDS */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .mini-card {
+    background: var(--blue-soft);
+    border: 1px solid var(--blue-pale);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .mini-card h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .mini-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+  /* FORMULA TABLE */
+  .formula-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  .formula-table th {
+    background: var(--navy);
+    color: var(--gold);
+    padding: 10px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .formula-table th:first-child { border-radius: 8px 0 0 0; }
+  .formula-table th:last-child { border-radius: 0 8px 0 0; }
+  .formula-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: var(--text-dark);
+  }
+  .formula-table tr:nth-child(even) td { background: var(--blue-soft); }
+  .formula-table tr:hover td { background: var(--blue-pale); }
+  .formula-table code {
+    background: var(--navy);
+    color: #7dd3fc;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+  }
+
+  /* TIP BOX */
+  .tip {
+    background: var(--gold-light);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 14px;
+    color: #5c3d00;
+  }
+  .tip strong { color: #3d2800; }
+
+  /* INFO BOX */
+  .info-box {
+    background: var(--blue-soft);
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 14px;
+    color: var(--text-mid);
+  }
+
+  /* SHORTCUT PILLS */
+  .shortcut-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 10px;
+  }
+  .shortcut-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+  }
+  .shortcut-item span { font-size: 13px; color: var(--text-mid); }
+  .shortcut-item kbd {
+    background: var(--navy);
+    color: var(--gold);
+    padding: 3px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* SECTION DIVIDER */
+  .section-divider {
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--blue-bright) 50%, var(--navy) 100%);
+    margin: 50px 0;
+    border-radius: 2px;
+  }
+
+  /* BADGE */
+  .badge {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+  }
+
+  /* LIST STYLES */
+  ul.styled { padding-left: 0; list-style: none; }
+  ul.styled li {
+    padding: 6px 0 6px 22px;
+    position: relative;
+    font-size: 14px;
+    color: var(--text-mid);
+    border-bottom: 1px dashed var(--border);
+  }
+  ul.styled li:last-child { border-bottom: none; }
+  ul.styled li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--navy-accent);
+    font-size: 12px;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 30px 40px;
+    font-size: 13px;
+  }
+  .footer strong { color: var(--gold); }
+
+  /* PRINT */
+  @media print {
+    .cover { page-break-after: always; }
+    .toc { page-break-after: always; }
+    .section-divider { page-break-before: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-tag">Complete Study Notes · 2026</div>
+  <h1>Microsoft<br><span>Excel</span></h1>
+  <div class="cover-sub">From Basics to Advanced — A Complete Reference Guide</div>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <label>Prepared by</label>
+      <span>Sameeksha</span>
+    </div>
+    <div class="cover-meta-item">
+      <label>Year</label>
+      <span>2026</span>
+    </div>
+    <div class="cover-meta-item">
+      <label>Version</label>
+      <span>Excel 365</span>
+    </div>
+  </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+  <div class="toc-title">Table of Contents</div>
+  <div class="toc-grid">
+    <a class="toc-item" href="#s1"><span class="toc-num">01</span> Introduction to Excel</a>
+    <a class="toc-item" href="#s2"><span class="toc-num">02</span> Interface & Navigation</a>
+    <a class="toc-item" href="#s3"><span class="toc-num">03</span> Data Entry & Formatting</a>
+    <a class="toc-item" href="#s4"><span class="toc-num">04</span> Formulas & Functions</a>
+    <a class="toc-item" href="#s5"><span class="toc-num">05</span> Logical & Lookup Functions</a>
+    <a class="toc-item" href="#s6"><span class="toc-num">06</span> Charts & Visualizations</a>
+    <a class="toc-item" href="#s7"><span class="toc-num">07</span> PivotTables</a>
+    <a class="toc-item" href="#s8"><span class="toc-num">08</span> Data Tools</a>
+    <a class="toc-item" href="#s9"><span class="toc-num">09</span> Advanced Features</a>
+    <a class="toc-item" href="#s10"><span class="toc-num">10</span> Keyboard Shortcuts</a>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="content">
+
+  <!-- SECTION 1 -->
+  <div id="s1">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <h2>Introduction to Excel</h2>
+    </div>
+
+    <div class="card">
+      <h3>What is Microsoft Excel?</h3>
+      <p>Microsoft Excel is a powerful spreadsheet application developed by Microsoft. It is used for organizing, analyzing, and visualizing data through a grid of rows and columns. Excel is part of the Microsoft Office / Microsoft 365 suite and is widely used in business, finance, education, and data analysis.</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="mini-card">
+        <h4>Data Organization</h4>
+        <p>Store and manage data in structured rows and columns with unlimited flexibility.</p>
+      </div>
+      <div class="mini-card">
+        <h4>Calculation</h4>
+        <p>Perform complex mathematical, statistical, financial, and logical calculations.</p>
+      </div>
+      <div class="mini-card">
+        <h4>Visualization</h4>
+        <p>Create charts, graphs, and dashboards to present data visually and clearly.</p>
+      </div>
+      <div class="mini-card">
+        <h4>Automation</h4>
+        <p>Automate repetitive tasks using macros and VBA scripting.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Key Terminology</h3>
+      <table class="formula-table">
+        <thead>
+          <tr><th>Term</th><th>Definition</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Workbook</strong></td><td>The entire Excel file (.xlsx) containing one or more sheets</td></tr>
+          <tr><td><strong>Worksheet</strong></td><td>A single spreadsheet tab within a workbook</td></tr>
+          <tr><td><strong>Cell</strong></td><td>The intersection of a row and a column (e.g., A1, B5)</td></tr>
+          <tr><td><strong>Row</strong></td><td>Horizontal line of cells numbered 1, 2, 3…</td></tr>
+          <tr><td><strong>Column</strong></td><td>Vertical line of cells labeled A, B, C…</td></tr>
+          <tr><td><strong>Range</strong></td><td>A group of selected cells (e.g., A1:D10)</td></tr>
+          <tr><td><strong>Formula</strong></td><td>An equation that performs calculations, starting with =</td></tr>
+          <tr><td><strong>Function</strong></td><td>A built-in predefined formula (e.g., SUM, AVERAGE)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 2 -->
+  <div id="s2">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <h2>Interface & Navigation</h2>
+    </div>
+
+    <div class="card">
+      <h3>Excel Interface Components</h3>
+      <ul class="styled">
+        <li><strong>Title Bar</strong> – Shows the file name and application name at the very top</li>
+        <li><strong>Ribbon</strong> – The toolbar area with tabs: Home, Insert, Page Layout, Formulas, Data, Review, View</li>
+        <li><strong>Name Box</strong> – Displays the address of the selected cell (e.g., A1)</li>
+        <li><strong>Formula Bar</strong> – Shows the content or formula of the active cell</li>
+        <li><strong>Column Headers</strong> – Letters A, B, C… at the top identifying columns</li>
+        <li><strong>Row Headers</strong> – Numbers 1, 2, 3… on the left identifying rows</li>
+        <li><strong>Sheet Tabs</strong> – Tabs at the bottom for navigating between worksheets</li>
+        <li><strong>Status Bar</strong> – At the bottom; shows sum, count, average of selected cells</li>
+        <li><strong>Scroll Bars</strong> – Used to navigate large spreadsheets horizontally and vertically</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Cell Addressing</h3>
+      <table class="formula-table">
+        <thead><tr><th>Type</th><th>Example</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Relative</strong></td><td><code>=A1+B1</code></td><td>Changes when formula is copied to another cell</td></tr>
+          <tr><td><strong>Absolute</strong></td><td><code>=$A$1+$B$1</code></td><td>Does not change when formula is copied; fixed reference</td></tr>
+          <tr><td><strong>Mixed</strong></td><td><code>=$A1 or =A$1</code></td><td>One part fixed, one part relative</td></tr>
+        </tbody>
+      </table>
+      <div class="tip"><strong>Tip:</strong> Press <kbd>F4</kbd> to toggle between reference types while editing a formula.</div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 3 -->
+  <div id="s3">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <h2>Data Entry & Formatting</h2>
+    </div>
+
+    <div class="card">
+      <h3>Types of Data in Excel</h3>
+      <ul class="styled">
+        <li><strong>Text (Labels)</strong> – Alphabetic or alphanumeric data. Aligns left by default.</li>
+        <li><strong>Numbers (Values)</strong> – Numeric data used in calculations. Aligns right by default.</li>
+        <li><strong>Dates & Times</strong> – Stored as numbers internally; displayed as dates.</li>
+        <li><strong>Logical (Boolean)</strong> – TRUE or FALSE values used in conditions.</li>
+        <li><strong>Error Values</strong> – #DIV/0!, #VALUE!, #REF!, #NAME?, #N/A, #NULL!, #NUM!</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Formatting Options</h3>
+      <div class="card-grid">
+        <div class="mini-card">
+          <h4>Number Formats</h4>
+          <p>General, Number, Currency, Accounting, Date, Time, Percentage, Fraction, Scientific, Text</p>
+        </div>
+        <div class="mini-card">
+          <h4>Cell Alignment</h4>
+          <p>Left, Center, Right, Top, Middle, Bottom, Wrap Text, Merge Cells</p>
+        </div>
+        <div class="mini-card">
+          <h4>Font Styling</h4>
+          <p>Bold, Italic, Underline, Font Color, Font Size, Font Family</p>
+        </div>
+        <div class="mini-card">
+          <h4>Borders & Fills</h4>
+          <p>All Borders, Thick Box Border, Cell Background Color, Pattern Style</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Conditional Formatting</h3>
+      <p>Automatically applies formatting (color, icons, data bars) based on cell values or rules.</p>
+      <ul class="styled" style="margin-top:12px">
+        <li>Highlight Cell Rules – Greater Than, Less Than, Equal To, Duplicate Values</li>
+        <li>Top/Bottom Rules – Top 10 Items, Bottom 10%, Above/Below Average</li>
+        <li>Data Bars – Visual bar inside the cell proportional to the value</li>
+        <li>Color Scales – Gradient color based on value range (e.g., Red–Yellow–Green)</li>
+        <li>Icon Sets – Arrows, traffic lights, stars based on thresholds</li>
+        <li>New Rule – Write custom formula-based rules</li>
+      </ul>
+      <div class="tip"><strong>Tip:</strong> Use <strong>Home → Conditional Formatting → Manage Rules</strong> to edit or delete existing rules.</div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 4 -->
+  <div id="s4">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <h2>Formulas & Functions</h2>
+    </div>
+
+    <div class="card">
+      <h3>Formula Basics</h3>
+      <p>All formulas in Excel begin with an equals sign (<strong>=</strong>). Formulas can include operators, cell references, values, and functions.</p>
+      <div class="info-box" style="margin-top:14px">
+        <strong>Arithmetic Operators:</strong> + (Add) &nbsp;|&nbsp; − (Subtract) &nbsp;|&nbsp; * (Multiply) &nbsp;|&nbsp; / (Divide) &nbsp;|&nbsp; ^ (Exponent) &nbsp;|&nbsp; % (Percent)
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Mathematical & Statistical Functions</h3>
+      <table class="formula-table">
+        <thead><tr><th>Function</th><th>Syntax</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>SUM</td><td><code>=SUM(A1:A10)</code></td><td>Adds all numbers in a range</td></tr>
+          <tr><td>AVERAGE</td><td><code>=AVERAGE(A1:A10)</code></td><td>Calculates the mean of values</td></tr>
+          <tr><td>COUNT</td><td><code>=COUNT(A1:A10)</code></td><td>Counts cells with numbers</td></tr>
+          <tr><td>COUNTA</td><td><code>=COUNTA(A1:A10)</code></td><td>Counts non-empty cells</td></tr>
+          <tr><td>COUNTBLANK</td><td><code>=COUNTBLANK(A1:A10)</code></td><td>Counts empty cells</td></tr>
+          <tr><td>MAX</td><td><code>=MAX(A1:A10)</code></td><td>Returns the largest value</td></tr>
+          <tr><td>MIN</td><td><code>=MIN(A1:A10)</code></td><td>Returns the smallest value</td></tr>
+          <tr><td>ROUND</td><td><code>=ROUND(A1,2)</code></td><td>Rounds to specified decimal places</td></tr>
+          <tr><td>ABS</td><td><code>=ABS(A1)</code></td><td>Returns absolute (positive) value</td></tr>
+          <tr><td>SQRT</td><td><code>=SQRT(A1)</code></td><td>Square root of a number</td></tr>
+          <tr><td>MOD</td><td><code>=MOD(A1,B1)</code></td><td>Remainder after division</td></tr>
+          <tr><td>POWER</td><td><code>=POWER(A1,3)</code></td><td>Raises number to a power</td></tr>
+          <tr><td>INT</td><td><code>=INT(A1)</code></td><td>Rounds down to nearest integer</td></tr>
+          <tr><td>SUMIF</td><td><code>=SUMIF(range,criteria,sum_range)</code></td><td>Sum cells meeting one condition</td></tr>
+          <tr><td>SUMIFS</td><td><code>=SUMIFS(sum_r,r1,c1,r2,c2)</code></td><td>Sum with multiple conditions</td></tr>
+          <tr><td>COUNTIF</td><td><code>=COUNTIF(A1:A10,"&gt;50")</code></td><td>Count cells meeting a condition</td></tr>
+          <tr><td>AVERAGEIF</td><td><code>=AVERAGEIF(range,criteria)</code></td><td>Average of cells meeting a condition</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Text Functions</h3>
+      <table class="formula-table">
+        <thead><tr><th>Function</th><th>Syntax</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>LEN</td><td><code>=LEN(A1)</code></td><td>Returns number of characters</td></tr>
+          <tr><td>LEFT</td><td><code>=LEFT(A1,3)</code></td><td>Extracts characters from the left</td></tr>
+          <tr><td>RIGHT</td><td><code>=RIGHT(A1,3)</code></td><td>Extracts characters from the right</td></tr>
+          <tr><td>MID</td><td><code>=MID(A1,2,4)</code></td><td>Extracts from middle (start, length)</td></tr>
+          <tr><td>UPPER</td><td><code>=UPPER(A1)</code></td><td>Converts text to UPPERCASE</td></tr>
+          <tr><td>LOWER</td><td><code>=LOWER(A1)</code></td><td>Converts text to lowercase</td></tr>
+          <tr><td>PROPER</td><td><code>=PROPER(A1)</code></td><td>Capitalizes First Letter of Each Word</td></tr>
+          <tr><td>TRIM</td><td><code>=TRIM(A1)</code></td><td>Removes extra spaces from text</td></tr>
+          <tr><td>CONCATENATE</td><td><code>=CONCATENATE(A1," ",B1)</code></td><td>Joins text strings together</td></tr>
+          <tr><td>TEXTJOIN</td><td><code>=TEXTJOIN(",",TRUE,A1:A5)</code></td><td>Joins with delimiter, skips blanks</td></tr>
+          <tr><td>FIND</td><td><code>=FIND("a",A1)</code></td><td>Position of text (case-sensitive)</td></tr>
+          <tr><td>SEARCH</td><td><code>=SEARCH("a",A1)</code></td><td>Position of text (not case-sensitive)</td></tr>
+          <tr><td>REPLACE</td><td><code>=REPLACE(A1,1,3,"XYZ")</code></td><td>Replaces part of text by position</td></tr>
+          <tr><td>SUBSTITUTE</td><td><code>=SUBSTITUTE(A1,"old","new")</code></td><td>Replaces specific text instances</td></tr>
+          <tr><td>TEXT</td><td><code>=TEXT(A1,"DD-MM-YYYY")</code></td><td>Formats number as text</td></tr>
+          <tr><td>VALUE</td><td><code>=VALUE("123")</code></td><td>Converts text to a number</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Date & Time Functions</h3>
+      <table class="formula-table">
+        <thead><tr><th>Function</th><th>Syntax</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>TODAY</td><td><code>=TODAY()</code></td><td>Returns current date</td></tr>
+          <tr><td>NOW</td><td><code>=NOW()</code></td><td>Returns current date and time</td></tr>
+          <tr><td>DATE</td><td><code>=DATE(year,month,day)</code></td><td>Creates a date from components</td></tr>
+          <tr><td>DAY</td><td><code>=DAY(A1)</code></td><td>Extracts the day number</td></tr>
+          <tr><td>MONTH</td><td><code>=MONTH(A1)</code></td><td>Extracts the month number</td></tr>
+          <tr><td>YEAR</td><td><code>=YEAR(A1)</code></td><td>Extracts the year</td></tr>
+          <tr><td>WEEKDAY</td><td><code>=WEEKDAY(A1,2)</code></td><td>Returns day of week (1=Mon with type 2)</td></tr>
+          <tr><td>NETWORKDAYS</td><td><code>=NETWORKDAYS(A1,B1)</code></td><td>Working days between two dates</td></tr>
+          <tr><td>EDATE</td><td><code>=EDATE(A1,3)</code></td><td>Date n months from given date</td></tr>
+          <tr><td>DATEDIF</td><td><code>=DATEDIF(A1,B1,"Y")</code></td><td>Difference between dates (Y/M/D)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 5 -->
+  <div id="s5">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <h2>Logical & Lookup Functions</h2>
+    </div>
+
+    <div class="card">
+      <h3>Logical Functions</h3>
+      <table class="formula-table">
+        <thead><tr><th>Function</th><th>Syntax</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>IF</td><td><code>=IF(condition, value_if_true, value_if_false)</code></td><td>Performs conditional test</td></tr>
+          <tr><td>IFS</td><td><code>=IFS(cond1,val1,cond2,val2)</code></td><td>Multiple conditions without nesting</td></tr>
+          <tr><td>AND</td><td><code>=AND(A1&gt;5, B1&lt;10)</code></td><td>TRUE if ALL conditions are true</td></tr>
+          <tr><td>OR</td><td><code>=OR(A1&gt;5, B1&lt;10)</code></td><td>TRUE if ANY condition is true</td></tr>
+          <tr><td>NOT</td><td><code>=NOT(A1&gt;5)</code></td><td>Reverses the logical value</td></tr>
+          <tr><td>IFERROR</td><td><code>=IFERROR(formula, "Error")</code></td><td>Returns custom value if error</td></tr>
+          <tr><td>IFNA</td><td><code>=IFNA(formula, "Not Found")</code></td><td>Handles #N/A errors only</td></tr>
+          <tr><td>SWITCH</td><td><code>=SWITCH(expr,v1,r1,v2,r2,default)</code></td><td>Matches expression against list</td></tr>
+        </tbody>
+      </table>
+      <div class="tip"><strong>Example:</strong> <code>=IF(A1&gt;=60,"Pass","Fail")</code> — Returns "Pass" if A1 is 60 or more, else "Fail".</div>
+    </div>
+
+    <div class="card">
+      <h3>Lookup & Reference Functions</h3>
+      <table class="formula-table">
+        <thead><tr><th>Function</th><th>Syntax</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>VLOOKUP</td><td><code>=VLOOKUP(lookup_val,table,col,0)</code></td><td>Looks up value vertically in a table</td></tr>
+          <tr><td>HLOOKUP</td><td><code>=HLOOKUP(lookup_val,table,row,0)</code></td><td>Looks up value horizontally in a table</td></tr>
+          <tr><td>XLOOKUP</td><td><code>=XLOOKUP(val,lookup_arr,return_arr)</code></td><td>Modern, flexible replacement for VLOOKUP</td></tr>
+          <tr><td>INDEX</td><td><code>=INDEX(array,row,col)</code></td><td>Returns value at specific row/col</td></tr>
+          <tr><td>MATCH</td><td><code>=MATCH(val,array,0)</code></td><td>Returns position of a value in range</td></tr>
+          <tr><td>INDEX+MATCH</td><td><code>=INDEX(B:B,MATCH(val,A:A,0))</code></td><td>Powerful combination for lookups</td></tr>
+          <tr><td>OFFSET</td><td><code>=OFFSET(A1,rows,cols,h,w)</code></td><td>Returns range offset from starting cell</td></tr>
+          <tr><td>INDIRECT</td><td><code>=INDIRECT("A1")</code></td><td>Returns reference from text string</td></tr>
+          <tr><td>CHOOSE</td><td><code>=CHOOSE(2,"Jan","Feb","Mar")</code></td><td>Returns value from a list by index</td></tr>
+          <tr><td>ROW</td><td><code>=ROW(A5)</code></td><td>Returns row number of a reference</td></tr>
+          <tr><td>COLUMN</td><td><code>=COLUMN(C1)</code></td><td>Returns column number of a reference</td></tr>
+        </tbody>
+      </table>
+      <div class="info-box">
+        <strong>VLOOKUP vs XLOOKUP:</strong> VLOOKUP only searches left-to-right and requires column number. XLOOKUP (Excel 365) searches in any direction, returns arrays, and has built-in error handling — it's the modern standard.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 6 -->
+  <div id="s6">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <h2>Charts & Visualizations</h2>
+    </div>
+
+    <div class="card">
+      <h3>Types of Charts</h3>
+      <div class="card-grid">
+        <div class="mini-card"><h4>Column / Bar Chart</h4><p>Comparing categories. Best for discrete data sets side by side.</p></div>
+        <div class="mini-card"><h4>Line Chart</h4><p>Showing trends over time. Best for continuous data like sales over months.</p></div>
+        <div class="mini-card"><h4>Pie / Doughnut Chart</h4><p>Showing proportions. Best for displaying parts of a whole (use &lt;6 slices).</p></div>
+        <div class="mini-card"><h4>Area Chart</h4><p>Like line chart but filled. Good for cumulative totals over time.</p></div>
+        <div class="mini-card"><h4>Scatter Plot</h4><p>Showing correlations. Best for comparing two numeric variables.</p></div>
+        <div class="mini-card"><h4>Combo Chart</h4><p>Combines bar and line. Useful for comparing data with different scales.</p></div>
+        <div class="mini-card"><h4>Histogram</h4><p>Shows frequency distribution. Good for statistical analysis of data ranges.</p></div>
+        <div class="mini-card"><h4>Waterfall Chart</h4><p>Shows cumulative effect of sequential values. Great for financial analysis.</p></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Creating a Chart — Steps</h3>
+      <ul class="styled">
+        <li>Select the data range including headers</li>
+        <li>Go to <strong>Insert</strong> tab → Charts group</li>
+        <li>Click the desired chart type (or use <strong>Recommended Charts</strong>)</li>
+        <li>The chart is inserted; use <strong>Chart Design</strong> tab to customize style</li>
+        <li>Use <strong>Format</strong> tab to adjust colors, fonts, borders</li>
+        <li>Click <strong>Chart Elements (+)</strong> to add/remove title, legend, gridlines, data labels</li>
+        <li>Right-click chart → <strong>Select Data</strong> to modify data range</li>
+        <li>Move chart to a separate sheet using <strong>Move Chart</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Sparklines</h3>
+      <p>Sparklines are tiny charts inside a single cell that show data trends. They are useful for dashboards and compact reports.</p>
+      <ul class="styled" style="margin-top:12px">
+        <li><strong>Line Sparkline</strong> – Shows trend direction over a data series</li>
+        <li><strong>Column Sparkline</strong> – Shows relative values as bars in a cell</li>
+        <li><strong>Win/Loss Sparkline</strong> – Shows positive/negative outcomes only</li>
+      </ul>
+      <div class="tip"><strong>Insert Sparkline:</strong> Insert → Sparklines → Choose type → Select data range → Choose location cell</div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 7 -->
+  <div id="s7">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <h2>PivotTables</h2>
+    </div>
+
+    <div class="card">
+      <h3>What is a PivotTable?</h3>
+      <p>A PivotTable is an interactive tool that summarizes, analyzes, explores, and presents data. It allows you to rearrange (pivot) data dynamically without writing formulas. It's one of Excel's most powerful features for data analysis.</p>
+    </div>
+
+    <div class="card">
+      <h3>Creating a PivotTable</h3>
+      <ul class="styled">
+        <li>Click anywhere inside your data table</li>
+        <li>Go to <strong>Insert → PivotTable</strong></li>
+        <li>Choose: New Worksheet or Existing Worksheet</li>
+        <li>The PivotTable Field List appears on the right</li>
+        <li>Drag fields into: <strong>Filters, Rows, Columns, Values</strong> areas</li>
+        <li>Use the <strong>PivotTable Analyze</strong> tab for advanced options</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>PivotTable Areas Explained</h3>
+      <table class="formula-table">
+        <thead><tr><th>Area</th><th>Purpose</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Rows</strong></td><td>Group data vertically by categories</td><td>Product names</td></tr>
+          <tr><td><strong>Columns</strong></td><td>Group data horizontally by categories</td><td>Months or regions</td></tr>
+          <tr><td><strong>Values</strong></td><td>Aggregate data (Sum, Count, Average, etc.)</td><td>Total Sales</td></tr>
+          <tr><td><strong>Filters</strong></td><td>Filter the entire table by a field</td><td>Year, Department</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>PivotChart & Slicers</h3>
+      <ul class="styled">
+        <li><strong>PivotChart</strong> – A chart connected to a PivotTable; updates automatically when data changes</li>
+        <li><strong>Slicers</strong> – Visual filter buttons for PivotTables; click to filter by category</li>
+        <li><strong>Timelines</strong> – Date-based slicers for filtering by month, quarter, year</li>
+        <li><strong>Calculated Field</strong> – Add a custom formula-based field to the PivotTable</li>
+      </ul>
+      <div class="tip"><strong>Refresh PivotTable:</strong> Right-click on the PivotTable → <strong>Refresh</strong> (or press <strong>Alt + F5</strong>) whenever source data changes.</div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 8 -->
+  <div id="s8">
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <h2>Data Tools</h2>
+    </div>
+
+    <div class="card">
+      <h3>Sorting & Filtering</h3>
+      <ul class="styled">
+        <li><strong>Sort A→Z / Z→A</strong> – Sort text or numbers in ascending or descending order</li>
+        <li><strong>Custom Sort</strong> – Sort by multiple levels (e.g., by Department, then by Name)</li>
+        <li><strong>AutoFilter</strong> – Click dropdown arrows on column headers to filter rows</li>
+        <li><strong>Advanced Filter</strong> – Filter with complex criteria using a criteria range</li>
+        <li><strong>Clear Filter</strong> – Data → Clear to remove all active filters</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Data Validation</h3>
+      <p>Restricts what can be entered in a cell. Go to <strong>Data → Data Validation</strong>.</p>
+      <table class="formula-table" style="margin-top:14px">
+        <thead><tr><th>Type</th><th>Use Case</th></tr></thead>
+        <tbody>
+          <tr><td>Whole Number</td><td>Allow only integers within a range</td></tr>
+          <tr><td>Decimal</td><td>Allow decimals within specified limits</td></tr>
+          <tr><td>List</td><td>Dropdown menu from a defined list or range</td></tr>
+          <tr><td>Date</td><td>Restrict to dates within a range</td></tr>
+          <tr><td>Text Length</td><td>Restrict character count</td></tr>
+          <tr><td>Custom</td><td>Write your own formula as the validation rule</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Remove Duplicates & Text to Columns</h3>
+      <ul class="styled">
+        <li><strong>Remove Duplicates</strong> – Data → Remove Duplicates → select columns to check</li>
+        <li><strong>Text to Columns</strong> – Split text in one column into multiple columns (by delimiter or fixed width)</li>
+        <li><strong>Flash Fill</strong> – Automatically fills data based on a pattern you establish (Ctrl+E)</li>
+        <li><strong>Consolidate</strong> – Combine data from multiple ranges into one</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>What-If Analysis Tools</h3>
+      <ul class="styled">
+        <li><strong>Goal Seek</strong> – Find the input value needed to achieve a specific result (Data → What-If Analysis → Goal Seek)</li>
+        <li><strong>Scenario Manager</strong> – Compare multiple scenarios with different input values</li>
+        <li><strong>Data Table</strong> – Show how one or two variables affect a formula result</li>
+        <li><strong>Solver</strong> – Advanced optimization tool (must enable via Add-ins)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 9 -->
+  <div id="s9">
+    <div class="section-header">
+      <div class="section-num">9</div>
+      <h2>Advanced Features</h2>
+    </div>
+
+    <div class="card">
+      <h3>Named Ranges</h3>
+      <p>Assign a name to a cell or range to use instead of cell addresses in formulas.</p>
+      <ul class="styled" style="margin-top:12px">
+        <li>Select the range → click the <strong>Name Box</strong> → type a name → press Enter</li>
+        <li>Or go to <strong>Formulas → Define Name</strong></li>
+        <li>Use in formulas: <code>=SUM(SalesData)</code> instead of <code>=SUM(B2:B100)</code></li>
+        <li>Manage names via <strong>Formulas → Name Manager</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Excel Tables (Structured References)</h3>
+      <p>Convert a range to a formal Excel Table using <strong>Ctrl+T</strong> or <strong>Insert → Table</strong>.</p>
+      <ul class="styled" style="margin-top:12px">
+        <li>Tables auto-expand when new data is added</li>
+        <li>Formulas use structured references: <code>=SUM(Table1[Sales])</code></li>
+        <li>AutoFilter is automatically enabled on tables</li>
+        <li>Total Row can be added for quick aggregations</li>
+        <li>Tables make VLOOKUP/XLOOKUP ranges dynamic</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Array Formulas & Dynamic Arrays (Excel 365)</h3>
+      <table class="formula-table">
+        <thead><tr><th>Function</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>=UNIQUE(A1:A20)</code></td><td>Returns list of unique values from a range</td></tr>
+          <tr><td><code>=SORT(A1:A20)</code></td><td>Sorts an array or range</td></tr>
+          <tr><td><code>=SORTBY(A:A,B:B)</code></td><td>Sorts by another column's values</td></tr>
+          <tr><td><code>=FILTER(A:B,C:C="Yes")</code></td><td>Returns rows matching a condition</td></tr>
+          <tr><td><code>=SEQUENCE(10,1,1,1)</code></td><td>Generates a sequence of numbers</td></tr>
+          <tr><td><code>=RANDARRAY(5,3)</code></td><td>Generates array of random numbers</td></tr>
+        </tbody>
+      </table>
+      <div class="info-box">Dynamic array functions spill results automatically into adjacent cells — no need for Ctrl+Shift+Enter. The spill range shows with a blue border.</div>
+    </div>
+
+    <div class="card">
+      <h3>Macros & VBA Basics</h3>
+      <ul class="styled">
+        <li>A <strong>Macro</strong> is a recorded set of actions to automate repetitive tasks</li>
+        <li><strong>Record Macro:</strong> View → Macros → Record Macro → perform actions → Stop Recording</li>
+        <li><strong>Run Macro:</strong> View → Macros → View Macros → Run</li>
+        <li><strong>VBA Editor:</strong> Press <kbd>Alt+F11</kbd> to open the Visual Basic for Applications editor</li>
+        <li>Save macro-enabled workbooks as <strong>.xlsm</strong> format</li>
+        <li>Assign macros to buttons for easy access from the sheet</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Protecting Workbooks & Sheets</h3>
+      <ul class="styled">
+        <li><strong>Protect Sheet</strong> – Review → Protect Sheet → set password and permissions</li>
+        <li><strong>Protect Workbook</strong> – Prevents adding/deleting sheets or changing structure</li>
+        <li><strong>Lock/Unlock Cells</strong> – Format Cells → Protection → uncheck Locked for editable cells</li>
+        <li><strong>Encrypt Workbook</strong> – File → Info → Protect Workbook → Encrypt with Password</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Power Query (Get & Transform)</h3>
+      <p>Power Query is Excel's data import and transformation engine (Data → Get Data).</p>
+      <ul class="styled" style="margin-top:12px">
+        <li>Import data from Excel, CSV, Web, SQL, SharePoint, and 100+ sources</li>
+        <li>Clean data: Remove nulls, split columns, change data types</li>
+        <li>Merge and append multiple tables or files</li>
+        <li>All steps are recorded and can be refreshed with one click</li>
+        <li>No formula writing needed — GUI-based transformation</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 10 -->
+  <div id="s10">
+    <div class="section-header">
+      <div class="section-num">10</div>
+      <h2>Essential Keyboard Shortcuts</h2>
+    </div>
+
+    <div class="card">
+      <h3>Navigation & Selection</h3>
+      <div class="shortcut-grid">
+        <div class="shortcut-item"><span>Go to cell A1</span><kbd>Ctrl + Home</kbd></div>
+        <div class="shortcut-item"><span>Go to last used cell</span><kbd>Ctrl + End</kbd></div>
+        <div class="shortcut-item"><span>Move to edge of data</span><kbd>Ctrl + Arrow</kbd></div>
+        <div class="shortcut-item"><span>Select entire column</span><kbd>Ctrl + Space</kbd></div>
+        <div class="shortcut-item"><span>Select entire row</span><kbd>Shift + Space</kbd></div>
+        <div class="shortcut-item"><span>Select entire sheet</span><kbd>Ctrl + A</kbd></div>
+        <div class="shortcut-item"><span>Extend selection</span><kbd>Shift + Arrow</kbd></div>
+        <div class="shortcut-item"><span>Go to specific cell</span><kbd>Ctrl + G</kbd></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Editing</h3>
+      <div class="shortcut-grid">
+        <div class="shortcut-item"><span>Copy</span><kbd>Ctrl + C</kbd></div>
+        <div class="shortcut-item"><span>Cut</span><kbd>Ctrl + X</kbd></div>
+        <div class="shortcut-item"><span>Paste</span><kbd>Ctrl + V</kbd></div>
+        <div class="shortcut-item"><span>Paste Special</span><kbd>Ctrl + Alt + V</kbd></div>
+        <div class="shortcut-item"><span>Undo</span><kbd>Ctrl + Z</kbd></div>
+        <div class="shortcut-item"><span>Redo</span><kbd>Ctrl + Y</kbd></div>
+        <div class="shortcut-item"><span>Find</span><kbd>Ctrl + F</kbd></div>
+        <div class="shortcut-item"><span>Find & Replace</span><kbd>Ctrl + H</kbd></div>
+        <div class="shortcut-item"><span>Edit active cell</span><kbd>F2</kbd></div>
+        <div class="shortcut-item"><span>Delete cell content</span><kbd>Delete</kbd></div>
+        <div class="shortcut-item"><span>Flash Fill</span><kbd>Ctrl + E</kbd></div>
+        <div class="shortcut-item"><span>Fill Down</span><kbd>Ctrl + D</kbd></div>
+        <div class="shortcut-item"><span>Fill Right</span><kbd>Ctrl + R</kbd></div>
+        <div class="shortcut-item"><span>Auto Sum</span><kbd>Alt + =</kbd></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Formatting</h3>
+      <div class="shortcut-grid">
+        <div class="shortcut-item"><span>Bold</span><kbd>Ctrl + B</kbd></div>
+        <div class="shortcut-item"><span>Italic</span><kbd>Ctrl + I</kbd></div>
+        <div class="shortcut-item"><span>Underline</span><kbd>Ctrl + U</kbd></div>
+        <div class="shortcut-item"><span>Format Cells dialog</span><kbd>Ctrl + 1</kbd></div>
+        <div class="shortcut-item"><span>Apply Currency format</span><kbd>Ctrl + Shift + $</kbd></div>
+        <div class="shortcut-item"><span>Apply Percentage format</span><kbd>Ctrl + Shift + %</kbd></div>
+        <div class="shortcut-item"><span>Apply Date format</span><kbd>Ctrl + Shift + #</kbd></div>
+        <div class="shortcut-item"><span>Apply Number format</span><kbd>Ctrl + Shift + !</kbd></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Workbook & Sheet Operations</h3>
+      <div class="shortcut-grid">
+        <div class="shortcut-item"><span>New workbook</span><kbd>Ctrl + N</kbd></div>
+        <div class="shortcut-item"><span>Open workbook</span><kbd>Ctrl + O</kbd></div>
+        <div class="shortcut-item"><span>Save</span><kbd>Ctrl + S</kbd></div>
+        <div class="shortcut-item"><span>Save As</span><kbd>F12</kbd></div>
+        <div class="shortcut-item"><span>Print</span><kbd>Ctrl + P</kbd></div>
+        <div class="shortcut-item"><span>Close workbook</span><kbd>Ctrl + W</kbd></div>
+        <div class="shortcut-item"><span>Insert new sheet</span><kbd>Shift + F11</kbd></div>
+        <div class="shortcut-item"><span>Next sheet</span><kbd>Ctrl + Page Down</kbd></div>
+        <div class="shortcut-item"><span>Previous sheet</span><kbd>Ctrl + Page Up</kbd></div>
+        <div class="shortcut-item"><span>Open VBA Editor</span><kbd>Alt + F11</kbd></div>
+        <div class="shortcut-item"><span>Refresh PivotTable</span><kbd>Alt + F5</kbd></div>
+        <div class="shortcut-item"><span>Toggle Absolute Ref</span><kbd>F4</kbd></div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>Microsoft Excel Complete Notes &nbsp;·&nbsp; Prepared by <strong>Sameeksha</strong> &nbsp;·&nbsp; <strong>2026</strong></p>
+  <p style="margin-top:8px; font-size:11px; opacity:0.5">Excel 365 Reference Guide · All chapters covered: Basics to Advanced</p>
+</div>
+
+</body>
+</html>
